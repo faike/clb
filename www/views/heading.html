@@ -1,18 +1,22 @@
 <!-- public/views/nerd.html -->
 
-<div class="text-center">
-<form>
-    <div class="form-group">
-        <label for="inputEmail">Email</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-    </div>
-    <div class="form-group">
-        <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-    </div>
-    <div class="checkbox">
-        <label><input type="checkbox"> Remember me</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
+<div class="text-center" ng-controller="HeadingController">
+	<h1>Letter Heading</h1>
+	<small class="text-muted">
+  		First we'll start with your cover letter's heading. Enter in your first and last name.
+	</small>
+	<p>
+	<div>
+		<form>
+		  <fieldset class="form-group">
+		    <label for="formGroupExampleInput">First Name</label>
+		    <input type="text" class="form-control" id="firstname" placeholder="First Name">
+		  </fieldset>
+		  <fieldset class="form-group">
+		    <label for="formGroupExampleInput2">Last Name</label>
+		    <input type="text" class="form-control" id="lastname" placeholder="Last Name">
+		  </fieldset>
+		  <button type="submit" ng-click="gotoContact()" class="btn btn-primary">Save</button>
+		</form>
+	</div>
 </div>

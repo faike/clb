@@ -9,11 +9,20 @@
             controller: 'MainController'
         })
 
-        // nerds page that will use the NerdController
+        // heading
         .when('/heading', {
             templateUrl: 'views/heading.html',
             controller: 'HeadingController'
+        })
+        .when('/address', {
+            templateUrl: 'views/address.html',
+            controller: 'HeadingController'
+        })
+        .when('/contact', {
+            templateUrl: 'views/contact.html',
+            controller: 'HeadingController'
         });
+
 
     $locationProvider.html5Mode(true);
 
