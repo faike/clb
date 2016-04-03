@@ -16,7 +16,7 @@
         })
         .when('/address', {
             templateUrl: 'views/address.html',
-            controller: 'HeadingController'
+            controller: 'AddressController'
         })
         .when('/contact', {
             templateUrl: 'views/contact.html',

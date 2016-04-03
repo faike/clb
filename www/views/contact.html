@@ -1,22 +1,30 @@
 <!-- www/views/address.html -->
 
-<div class="text-center" >
+<div class="text-center" ng-controller="ContactController">
 	<h1>Contact Information</h1>
 	<small class="text-muted">
   		Now your contact information, so that employers can get in touch.
 	</small>
 	<p>
 	<div>
-		<form>
+		 <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+		<form ng-submit="register()">
 		  <fieldset class="form-group">
-		    <label for="formGroupExampleInput">Cell Phone</label>
-		    <input type="text" class="form-control" id="phone" placeholder="">
+		    <label for="formGroupExampleInput">Cell Phone</label >
+		    <input type="password" class="form-control" id="phone" placeholder="">
 		  </fieldset>
+
 		  <fieldset class="form-group">
 		    <label for="formGroupExampleInput2">Email</label>
-		    <input type="text" class="form-control" id="city" placeholder="">
+		    <input type="text" class="form-control" id="email" name="username" ng-model="registerForm.username" required>
 		  </fieldset>
-		  <button type="submit" class="btn btn-primary">Review</button>
+
+		  <fieldset class="form-group">
+		    <label for="formGroupExampleInput2">Password</label>
+		    <input type="text" class="form-control" id="email" name="password" ng-model="registerForm.password" required>
+		  </fieldset>
+
+		  <button type="submit" ng-disabled = "disabled" class="btn btn-primary">Save & Create Account</button>
 		</form>
 	</div>
 </div>
