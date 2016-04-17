@@ -105,4 +105,80 @@ angular.module('letterbot').factory('AuthService',
       register: register
     });
 
+}])
+
+
+.factory('LetterService', ['$q', '$timeout', '$http', function ($q, $timeout, $http){
+
+  var letter = null;
+
+  function createLetter (firstname, lastname) {
+
+      var deferred = $q.defer();
+
+      // send a post request to the server
+      console.log(firstname, lastname);
+      $http.post('/letter',
+        {firstname: firstname, lastname: lastname})
+        // handle success
+        .success(function (data, status) {
+          if(status === 200 && data.status){
+            letter = data.id;
+            deferred.resolve();
+
+          } else {
+            deferred.reject();
+          }
+        })
+        // handle error
+        .error(function (data) {
+          deferred.reject();
+        });
+
+      // return promise object
+      return deferred.promise;
+
+  }
+
+  function updateLetter (data) {
+    var deferred = $q.defer();
+
+    if(letter == null) {
+      console.log("Letter is null")
+      return deferred.reject()
+    }
+
+
+    $http.put('/letter/' + letter, data)
+     .success(function (data,status) {
+        if(status === 200 && data.status) {
+
+            console.log("ASEX")
+            deferred.resolve();
+
+          } else {
+            deferred.reject();
+          }
+     })
+     .error(function (data) {
+          deferred.reject();
+      });
+
+     return deferred.promise
+
+  }
+
+  return ({
+    letter: letter,
+    createLetter: createLetter,
+    updateLetter: updateLetter
+  });
+
+
+
+
 }]);
+
+
+
+

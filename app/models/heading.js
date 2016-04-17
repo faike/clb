@@ -1,10 +1,28 @@
-// app/models/heading.js
-// grab the mongoose module
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-// define our nerd model
-// module.exports allows us to pass this to other files when it is called
-module.exports = mongoose.model('Heading', {
-    firstname : {type : String, default: ''},
-    lastname : {type : String, default: ''}
+var Heading = new Schema({
+	
+    firstname : String,
+    lastname : String,
+    street : String,
+    city : String,
+    state : String,
+    phone : String,
+    email : String,
+    toname: String,
+    companyname : String,
+    companyaddress : String,
+    companycity : String,
+    companystate : String,
+    positionname : String,
+    jobboardname : String,
+    yearsofexperience : String,
+    industry : String,
+    jobtitles : [String],
+    companys: [String],
+    responsibilities: [String]
+
 });
+
+module.exports = mongoose.model('Heading', Heading);

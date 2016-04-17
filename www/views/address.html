@@ -10,15 +10,15 @@
 		<form ng-submit="save()">
 		  <fieldset class="form-group">
 		    <label for="formGroupExampleInput">Street Adress</label>
-		    <input type="text" class="form-control" id="street" placeholder="">
+		    <input type="text" class="form-control" id="street" ng-model="address.street" placeholder="">
 		  </fieldset>
 		  <fieldset class="form-group">
 		    <label for="formGroupExampleInput2">City</label>
-		    <input type="text" class="form-control" id="city" placeholder="">
+		    <input type="text" class="form-control" id="city" ng-model="address.city" placeholder="">
 		  </fieldset>
 		  <fieldset class="form-group">
 		    <label for="formGroupExampleInput2">State</label>
-		    <input type="text" class="form-control" id="state" placeholder="">
+		    <input type="text" class="form-control" id="state" placeholder="" ng-model="address.state">
 		  </fieldset>
 
 		  <button type="submit" class="btn btn-primary">Save</button>

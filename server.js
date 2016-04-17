@@ -8,8 +8,11 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var expressSession = require('express-session');
-var routes = require('./app/routes2')
 var User = require('./app/models/user');
+var Heading = require('./app/models/heading');
+var routes = require('./app/routes2')
+
+
 mongoose.connect(db.url);
 
 // config files
@@ -28,9 +31,6 @@ app.all('*', function(req, res, next) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-// API Routes
-//require('./app/routes')(app); // configure our routes
 
 
 app.set('port', process.env.PORT || 5000);

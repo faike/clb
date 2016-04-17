@@ -2,6 +2,7 @@ var express = require('express');
 var passport = require('passport');
 var User = require('./models/user');
 var router = express.Router();
+var Heading = require('./controllers/HeadingController')
 
 
 router.get('/', function (req, res) {
@@ -57,4 +58,15 @@ router.get('/logout', function(req, res) {
     status: 'Bye!'
   });
 });
+
+
+router.post('/letter', Heading.create);
+
+router.get('/letter', Heading.list);
+
+router.get('/letter/:docId', Heading.read);
+router.put('/letter/:docId', Heading.update);
+
+router.param('docId', Heading.docByID);
+
 module.exports = router;
