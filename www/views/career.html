@@ -1,0 +1,27 @@
+<!-- www/views/career.html -->
+
+<div class="text-center">
+	<h1>Career</h1>
+	<small class="text-muted">
+  		Enter some more information of about your career and the position you are interested in.
+	</small>
+	<p>
+	<div>
+		<form ng-submit="save()">
+		  <fieldset class="form-group">
+		    <label for="formGroupExampleInput">Position Name</label>
+		    <input type="text" class="form-control" id="positionname" ng-model="career.positionname" placeholder="">
+		  </fieldset>
+		  <fieldset class="form-group">
+		    <label for="formGroupExampleInput2">Number of Years of Experience</label>
+		    <input type="text" class="form-control" id="city" ng-model="career.yearsofexperience" placeholder="">
+		  </fieldset>
+		  <fieldset class="form-group">
+		    <label for="formGroupExampleInput2">Career Industry</label>
+		    <input type="text" class="form-control" id="industry" placeholder="" ng-model="career.industry">
+		  </fieldset>
+
+		  <button type="submit" class="btn btn-primary">Save</button>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<!-- www/views/positions.html -->
+
+<div class="text-center">
+	<h1>Previous Positions</h1>
+	<small class="text-muted">
+  		What past job positions have you had?
+	</small>
+	<p>
+	<div>
+		<form ng-submit="save()">
+		  <fieldset class="form-group">
+		    <label for="formGroupExampleInput">Job Title</label>
+		    <input type="text" class="form-control" id="jobtitles" ng-model="positions.jobtitles" placeholder="">
+		  </fieldset>
+		  <fieldset class="form-group">
+		    <label for="formGroupExampleInput">Company</label>
+		    <input type="text" class="form-control" id="companys" ng-model="positions.companys" placeholder="">
+		  </fieldset>
+		  <fieldset class="form-group">
+		    <label for="formGroupExampleInput2">Main Responsibility</label>
+		    <input type="text" class="form-control" id="city" ng-model="positions.responsibilities" placeholder="">
+		  </fieldset>
+		  <button type="submit" class="btn btn-primary">Save</button>
+		</form>
+	</div>
+</div>

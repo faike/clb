@@ -76,7 +76,7 @@ angular.module('HeadingCtrl', []).controller('HeadingController', function($scop
     	AuthService.register($scope.registerForm.username, $scope.registerForm.password)
 
     	.then(function() {
-    		$location.path('/login');
+    		$location.path('/recipient');
     		$scope.disabled = false;
     		$scope.registerForm = {};
     	})
@@ -88,5 +88,85 @@ angular.module('HeadingCtrl', []).controller('HeadingController', function($scop
         });
     };
 
+
+}).controller('RecipientController', function($scope, $location,  LetterService) {
+
+    $scope.recipient={};
+
+    $scope.save = function () {
+
+      LetterService.updateLetter($scope.recipient)
+        .then(function() {
+            $location.path( '/career' );
+            $scope.disabled = false;
+            $scope.recipient = {};
+        })
+        .catch(function () {
+          console.log("Something went wrong")
+          $scope.error = true;
+          $scope.errorMessage = "Something went wrong!";
+          $scope.disabled = false;
+          $scope.recipient = {};
+        });
+
+    }
+
+})
+.controller('CareerController', function($scope, $location,  LetterService) {
+
+    $scope.career={};
+
+    $scope.save = function () {
+
+      LetterService.updateLetter($scope.career)
+        .then(function() {
+            $location.path( '/positions' );
+            $scope.disabled = false;
+            $scope.career = {};
+        })
+        .catch(function () {
+          console.log("Something went wrong")
+          $scope.error = true;
+          $scope.errorMessage = "Something went wrong!";
+          $scope.disabled = false;
+          $scope.career = {};
+        });
+
+    }
+
+})
+.controller('PositionsController', function($scope, $location,  LetterService) {
+
+    $scope.positions={};
+
+    $scope.save = function () {
+
+      LetterService.updateLetter($scope.positions)
+        .then(function() {
+            $location.path( '/preview' );
+            $scope.disabled = false;
+            $scope.career = {};
+        })
+        .catch(function () {
+          console.log("Something went wrong")
+          $scope.error = true;
+          $scope.errorMessage = "Something went wrong!";
+          $scope.disabled = false;
+          $scope.positions = {};
+        });
+
+    }
+
+})
+.controller('PreviewController', function($sce, $scope, $location, LetterService, $http) {
+
+  var docId = LetterService.getletter();
+
+  $http.get('/generateLetter/' + docId)
+  .then(function(res) {
+    $scope.pageHtml = $sce.trustAsHtml(res.data)
+  })
+
+  
 
 });

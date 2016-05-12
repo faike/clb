@@ -33,6 +33,7 @@ exports.list = function(req, res, next) {
 
 
 exports.docByID = function(req, res, next, id) {
+    console.log("WHAT THE FUCK by docByID");
     Heading.findOne({
             _id: id
         },
@@ -48,18 +49,51 @@ exports.docByID = function(req, res, next, id) {
     );
 };
 
-exports.read = function(req, res) {
-    res.json(req.heading);
+exports.read = function(req, res, next) {
+    console.log("READ");
+    Heading.findOne({
+            _id: req.heading.id
+        },
+        function(err, heading) {
+            if (err) {
+                console.log("Error in Read")
+                return next(err);
+            }
+            else {
+                console.log(heading);
+                res.status(200).json(heading);
+            }
+        }
+    );
+};
+
+exports.generateLetter = function(req, res, next) {
+    Heading.findOne({
+            _id: req.heading.id
+        },
+        function(err, heading) {
+            if (err) {
+                return next(err);
+            }
+            else {
+                res.render('template', heading);
+                
+            }
+        }
+    );
+
+    
 };
 
 
 exports.update = function(req, res, next) {
+    console.log("UPDATE");
     Heading.findByIdAndUpdate(req.heading.id, req.body, function(err, heading) {
         if (err) {
             return next(err);
         }
         else {
-            res.status(200).json({status: 'Letter Creation successful!'});
+            res.status(200).json({status: 'Letter Update successful!'});
 
         }
     });

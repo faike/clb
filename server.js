@@ -34,6 +34,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.set('port', process.env.PORT || 5000);
+app.set('view engine', 'ejs'); 
+app.set('views',__dirname+'/app/views');
 
 
 // Configuring Passport

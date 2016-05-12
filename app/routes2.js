@@ -65,7 +65,10 @@ router.post('/letter', Heading.create);
 router.get('/letter', Heading.list);
 
 router.get('/letter/:docId', Heading.read);
+
 router.put('/letter/:docId', Heading.update);
+
+router.get('/generateLetter/:docId', Heading.generateLetter);
 
 router.param('docId', Heading.docByID);
 

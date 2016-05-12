@@ -150,10 +150,10 @@ angular.module('letterbot').factory('AuthService',
 
 
     $http.put('/letter/' + letter, data)
-     .success(function (data,status) {
+     .success(function (data, status) {
         if(status === 200 && data.status) {
 
-            console.log("ASEX")
+            console.log(letter, "Updated")
             deferred.resolve();
 
           } else {
@@ -168,10 +168,35 @@ angular.module('letterbot').factory('AuthService',
 
   }
 
+  function generateLetter () {
+
+    if(letter ==null) {
+      console.log("Letter is null")
+      return;
+    }
+
+    $http.get('/generateLetter/' +letter)
+    .then(function(res) {
+      console.log(res.data)
+
+      return res.data;
+
+    })
+    .else(function() {
+      console.log("GENERATE FAILED")
+    })
+
+  }
+
+  function getletter() {
+    return letter;
+  }
+
   return ({
-    letter: letter,
+    getletter: getletter,
     createLetter: createLetter,
-    updateLetter: updateLetter
+    updateLetter: updateLetter,
+    generateLetter: generateLetter
   });
 
 

@@ -21,6 +21,22 @@
         .when('/contact', {
             templateUrl: 'views/contact.html',
             controller: 'HeadingController'
+        })
+        .when('/recipient', {
+            templateUrl: 'views/recipient.html',
+            controller: 'RecipientController'
+        })
+        .when('/career', {
+            templateUrl: 'views/career.html',
+            controller: 'CareerController'
+        })
+        .when('/positions', {
+            templateUrl: 'views/positions.html',
+            controller: 'PositionsController'
+        })
+        .when('/preview', {
+            templateUrl: 'views/preview.html',
+            controller: 'PreviewController'
         });
 
 
