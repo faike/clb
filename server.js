@@ -12,11 +12,12 @@ var User = require('./app/models/user');
 var Heading = require('./app/models/heading');
 var routes = require('./app/routes2')
 
+// config files
+var db = require('./config/db');
 
 mongoose.connect(db.url);
 
-// config files
-var db = require('./config/db');
+
 
 app = express();
 

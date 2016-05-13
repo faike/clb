@@ -76,7 +76,7 @@ exports.generateLetter = function(req, res, next) {
                 return next(err);
             }
             else {
-                res.render('template', heading);
+                res.render('recentgrad', heading);
                 
             }
         }
